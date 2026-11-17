@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Feliz Cumpleaños Miranda • 16 Años</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Great+Vibes&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        html, body { margin: 0; padding: 0; width: 100%; min-height: 100%; overflow-x: hidden; font-family: 'Quicksand', sans-serif; background: linear-gradient(160deg, #2e1065 0%, #4c1d95 50%, #581c87 100%); color: #2e1065; }
+        #app-wrapper { width: 100%; max-width: 430px; margin: 0 auto; padding: 16px 14px 28px 14px; display: flex; flex-direction: column; }
+        .font-carta { font-family: 'Caveat', cursive; letter-spacing: 0.015em; }
+        .font-firma { font-family: 'Great Vibes', cursive; }
+        .marcatextos { background: linear-gradient(104deg, rgba(216, 180, 254, 0) 1%, rgba(216, 180, 254, 0.95) 3%, rgba(233, 213, 255, 0.88) 50%, rgba(216, 180, 254, 0.95) 97%, rgba(216, 180, 254, 0) 99%); padding: 0.12em 0.35em; border-radius: 0.3em; box-decoration-break: clone; -webkit-box-decoration-break: clone; color: #2e1065; font-weight: 700; }
+        .page-sheet { display: none; width: 100%; animation: sheetFadeIn 0.38s ease-out forwards; }
+        .page-sheet.active { display: block; }
+        @keyframes sheetFadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes phoneShake { 0%, 100% { transform: translateX(0); } 20%, 60% { transform: translateX(-7px); } 40%, 80% { transform: translateX(7px); } }
+        .shake-error { animation: phoneShake 0.38s ease-in-out; }
+        @keyframes softFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
+        .kitty-float { animation: softFloat 3.2s ease-in-out infinite; }
+        .physical-envelope { background: linear-gradient(145deg, #c4b5fd 0%, #a78bfa 100%); border: 2px solid #7c3aed; position: relative; overflow: hidden; }
+        .physical-envelope::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 56%; background: linear-gradient(180deg, #ddd6fe 0%, #c4b5fd 100%); clip-path: polygon(0 0, 100% 0, 50% 100%); border-bottom: 2px solid #7c3aed; transform-origin: top; transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1); z-index: 1; }
+        .envelope-opened .physical-envelope::before { transform: rotateX(180deg); }
+        .heart-seal { width: 56px; height: 56px; border-radius: 9999px; background: radial-gradient(circle at 30% 30%, #9333ea, #4c1d95); border: 3px solid #e9d5ff; box-shadow: 0 4px 12px rgba(46, 16, 101, 0.45); display: flex; align-items: center; justify-content: center; position: relative; z-index: 2; transition: transform 0.3s ease; }
+        .lined-paper { display: none; background-color: #f3e8ff; background-image: repeating-linear-gradient(to bottom, transparent 0px, transparent 31px, rgba(124, 58, 237, 0.28) 32px); box-shadow: 0 10px 25px rgba(20, 5, 48, 0.35), inset 0 0 20px rgba(167, 139, 250, 0.3); }
+        .envelope-opened .lined-paper { display: block; animation: sheetFadeIn 0.45s ease-out forwards; }
+        input[type="range"].spotify-slider { -webkit-appearance: none; appearance: none; width: 100%; height: 5px; background: rgba(216, 180, 254, 0.3); border-radius: 999px; outline: none; }
+        input[type="range"].spotify-slider::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 14px; height: 14px; border-radius: 50%; background: #e9d5ff; cursor: pointer; }
+        #scratch-canvas { touch-action: none; cursor: pointer; }
+    </style>
+</head>
+<body>
+
+    <svg class="hidden" aria-hidden="true">
+        <defs>
+            <symbol id="hello-kitty-svg" viewBox="0 0 130 105">
+                <path d="M 65 92 C 33 92, 18 75, 18 54 C 18 39, 22 25, 29 12 C 36 17, 44 25, 49 29 C 54 27, 60 27, 65 27 C 70 27, 76 27, 81 29 C 86 25, 94 17, 101 12 C 108 25, 112 39, 112 54 C 112 75, 97 92, 65 92 Z" fill="#ede9fe" stroke="#2e1065" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+                <ellipse cx="45" cy="58" rx="4.5" ry="6.2" fill="#2e1065"/>
+                <ellipse cx="85" cy="58" rx="4.5" ry="6.2" fill="#2e1065"/>
+                <ellipse cx="65" cy="67" rx="5.8" ry="4" fill="#f59e0b" stroke="#2e1065" stroke-width="2.5"/>
+                <line x1="6" y1="50" x2="24" y2="53" stroke="#2e1065" stroke-width="3.5" stroke-linecap="round"/>
+                <line x1="4" y1="60" x2="23" y2="60" stroke="#2e1065" stroke-width="3.5" stroke-linecap="round"/>
+                <line x1="7" y1="71" x2="25" y2="68" stroke="#2e1065" stroke-width="3.5" stroke-linecap="round"/>
+                <line x1="124" y1="50" x2="106" y2="53" stroke="#2e1065" stroke-width="3.5" stroke-linecap="round"/>
+                <line x1="126" y1="60" x2="107" y2="60" stroke="#2e1065" stroke-width="3.5" stroke-linecap="round"/>
+                <line x1="123" y1="71" x2="105" y2="68" stroke="#2e1065" stroke-width="3.5" stroke-linecap="round"/>
+                <g transform="translate(82, 14) rotate(18)">
+                    <path d="M 14 12 C 4 2, -2 12, 6 20 C -2 28, 4 38, 14 28 C 18 32, 24 32, 28 28 C 38 38, 44 28, 36 20 C 44 12, 38 2, 28 12 C 24 8, 18 8, 14 12 Z" fill="#c026d3" stroke="#2e1065" stroke-width="3" stroke-linejoin="round"/>
+                    <circle cx="21" cy="20" r="6" fill="#e879f9" stroke="#2e1065" stroke-width="2.8"/>
+                </g>
+            </symbol>
+            <symbol id="kitty-bow-svg" viewBox="0 0 64 46">
+                <path d="M 24 13 C 12 3, 4 13, 13 23 C 4 33, 12 43, 24 33 C 28 37, 36 37, 40 33 C 52 43, 60 33, 51 23 C 60 13, 52 3, 40 13 C 36 9, 28 9, 24 13 Z" fill="#c026d3" stroke="#2e1065" stroke-width="3" stroke-linejoin="round"/>
+                <circle cx="32" cy="23" r="6.5" fill="#e879f9" stroke="#2e1065" stroke-width="2.8"/>
+            </symbol>
+        </defs>
+    </svg>
+
+    <main id="app-wrapper">
+        <nav id="top-bar" class="hidden mb-4 flex items-center justify-between bg-[#ddd6fe] px-3.5 py-2 rounded-2xl shadow-md border border-purple-400">
+            <button type="button" onclick="prevSheet()" class="text-purple-950 font-bold text-xs px-3 py-1.5 rounded-xl bg-purple-300 active:scale-95 transition">← Atrás</button>
+            <div id="progress-dots" class="flex items-center gap-1.5"></div>
+            <div class="flex items-center gap-1.5">
+                <svg class="w-7 h-6"><use href="#hello-kitty-svg"/></svg>
+                <span id="sheet-indicator" class="text-xs font-bold text-purple-950">2/7</span>
+            </div>
+        </nav>
+
+        <!-- HOJA 1 -->
+        <section id="sheet-1" class="page-sheet active">
+            <div class="bg-[#ede9fe] rounded-3xl shadow-2xl border-2 border-purple-400 p-6 text-center mt-2">
+                <div class="flex justify-center mb-2 kitty-float"><svg class="w-20 h-16"><use href="#hello-kitty-svg"/></svg></div>
+                <h1 class="text-2xl font-bold text-purple-950 leading-tight">Feliz cumpleaños mi niña</h1>
+                <p class="text-base font-bold text-purple-700 mt-0.5 mb-4">(Miranda)</p>
+                <div class="bg-[#ddd6fe] border border-purple-400 rounded-2xl px-3.5 py-2.5 mb-5">
+                    <p class="text-xs font-bold text-purple-950"><span class="text-purple-800">Pista:</span> la fecha de nuestro primer beso (día y mes)</p>
+                </div>
+                <div id="pin-container" class="flex justify-center gap-3 mb-2">
+                    <div class="pin-digit w-12 h-14 rounded-2xl border-2 border-purple-500 bg-[#ddd6fe] flex items-center justify-center text-2xl font-bold text-purple-950 shadow-inner"></div>
+                    <div class="pin-digit w-12 h-14 rounded-2xl border-2 border-purple-500 bg-[#ddd6fe] flex items-center justify-center text-2xl font-bold text-purple-950 shadow-inner"></div>
+                    <div class="pin-digit w-12 h-14 rounded-2xl border-2 border-purple-500 bg-[#ddd6fe] flex items-center justify-center text-2xl font-bold text-purple-950 shadow-inner"></div>
+                    <div class="pin-digit w-12 h-14 rounded-2xl border-2 border-purple-500 bg-[#ddd6fe] flex items-center justify-center text-2xl font-bold text-purple-950 shadow-inner"></div>
+                </div>
+                <div class="h-6 flex items-center justify-center mb-3">
+                    <p id="pin-error-msg" class="text-red-600 text-xs font-bold hidden">Contraseña incorrecta, intenta de nuevo</p>
+                </div>
+                <div class="grid grid-cols-3 gap-3 max-w-[260px] mx-auto select-none">
+                    <button type="button" onclick="addPinDigit('1')" class="w-16 h-16 mx-auto rounded-full bg-[#ddd6fe] active:bg-purple-300 text-xl font-bold text-purple-950 border-2 border-purple-400">1</button>
+                    <button type="button" onclick="addPinDigit('2')" class="w-16 h-16 mx-auto rounded-full bg-[#ddd6fe] active:bg-purple-300 text-xl font-bold text-purple-950 border-2 border-purple-400">2</button>
+                    <button type="button" onclick="addPinDigit('3')" class="w-16 h-16 mx-auto rounded-full bg-[#ddd6fe] active:bg-purple-300 text-xl font-bold text-purple-950 border-2 border-purple-400">3</button>
+                    <button type="button" onclick="addPinDigit('4')" class="w-16 h-16 mx-auto rounded-full bg-[#ddd6fe] active:bg-purple-300 text-xl font-bold text-purple-950 border-2 border-purple-400">4</button>
+                    <button type="button" onclick="addPinDigit('5')" class="w-16 h-16 mx-auto rounded-full bg-[#ddd6fe] active:bg-purple-300 text-xl font-bold text-purple-950 border-2 border-purple-400">5</button>
+                    <button type="button" onclick="addPinDigit('6')" class="w-16 h-16 mx-auto rounded-full bg-[#ddd6fe] active:bg-purple-300 text-xl font-bold text-purple-950 border-2 border-purple-400">6</button>
+                    <button type="button" onclick="addPinDigit('7')" class="w-16 h-16 mx-auto rounded-full bg-[#ddd6fe] active:bg-purple-300 text-xl font-bold text-purple-950 border-2 border-purple-400">7</button>
+                    <button type="button" onclick="addPinDigit('8')" class="w-16 h-16 mx-auto rounded-full bg-[#ddd6fe] active:bg-purple-300 text-xl font-bold text-purple-950 border-2 border-purple-400">8</button>
+                    <button type="button" onclick="addPinDigit('9')" class="w-16 h-16 mx-auto rounded-full bg-[#ddd6fe] active:bg-purple-300 text-xl font-bold text-purple-950 border-2 border-purple-400">9</button>
+                    <button type="button" onclick="removePinDigit()" class="w-16 h-16 mx-auto rounded-full bg-purple-300 text-lg font-bold text-purple-950 border-2 border-purple-400 flex items-center justify-center">⌫</button>
+                    <button type="button" onclick="addPinDigit('0')" class="w-16 h-16 mx-auto rounded-full bg-[#ddd6fe] active:bg-purple-300 text-xl font-bold text-purple-950 border-2 border-purple-400">0</button>
+                    <button type="button" onclick="checkPin()" class="w-16 h-16 mx-auto rounded-full bg-purple-700 text-xs font-bold text-purple-100 border-2 border-purple-400 flex items-center justify-center">Enter</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- HOJA 2 (Asta-donde-te-quiero.mp3) -->
+        <section id="sheet-2" class="page-sheet space-y-4">
+            <div class="bg-gradient-to-r from-[#3b0764] to-[#6d28d9] text-purple-100 rounded-2xl p-3.5 shadow-lg border border-purple-400/60 flex items-center justify-between gap-3">
+                <button type="button" onclick="toggleSingleAudio('audio-2', this)" class="audio-btn w-11 h-11 rounded-full bg-purple-200 text-purple-950 flex items-center justify-center shadow active:scale-90 transition shrink-0" data-playing="false">
+                    <svg class="w-5 h-5 fill-current ml-0.5" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                </button>
+                <div class="flex-1 min-w-0">
+                    <p class="text-[10px] uppercase tracking-wider text-purple-300 font-bold">Canción de esta hoja</p>
+                    <p class="text-sm font-bold truncate text-purple-100">Hasta donde te quiero</p>
+                </div>
+                <svg class="w-9 h-8 shrink-0"><use href="#hello-kitty-svg"/></svg>
+                <audio id="audio-2" preload="none" src="Asta-donde-te-quiero.mp3"></audio>
+            </div>
+            <div class="text-center"><h2 class="text-2xl font-bold text-purple-100">Una carta para mi princesa</h2></div>
+            <div id="env-box-1">
+                <div onclick="toggleEnvelope('env-box-1')" class="physical-envelope cursor-pointer rounded-3xl p-7 shadow-xl text-center active:scale-98 transition">
+                    <div class="flex flex-col items-center justify-center pt-4">
+                        <div class="heart-seal mb-2.5"><span class="text-2xl">💜</span></div>
+                        <p class="font-bold text-purple-950 text-base relative z-10">Toca el sello para abrir tu carta</p>
+                        <p class="text-xs font-semibold text-purple-900 mt-0.5 relative z-10">(Presiona el sobre)</p>
+                    </div>
+                </div>
+                <div class="lined-paper mt-3 border-2 border-purple-400 rounded-2xl p-5">
+                    <div class="flex justify-between items-center border-b-2 border-purple-300 pb-2 mb-3">
+                        <span class="text-xs font-bold text-purple-900 uppercase">Para Miranda • 16 Años</span>
+                        <svg class="w-7 h-5"><use href="#kitty-bow-svg"/></svg>
+                    </div>
+                    <p class="font-carta text-[24px] leading-[32px] text-purple-950">
+                        Hola mi niña, hoy cumples 16 años y es un día muy especial, y no solo para ti, pues para mí también, pues me alegra saber que estoy contigo en esta etapa. Quiero que disfrutes tu día, que estés feliz y estés con tu familia y con los que quieres. Esta carta te la doy porque quiero que sepas lo feliz que me haces en mi vida, lo mucho que te necesito y que eres algo muy especial para mí. Que sepas que te amo y que hay mucha gente que también te ama. También te mandé unos regalos, tal vez no los más caros, pero te prometo que los hice con todo mi corazón. ¡Te amo!
+                    </p>
+                    <div class="mt-5 pt-3 border-t border-purple-300 grid grid-cols-2 gap-2 items-end">
+                        <div class="text-left"><p class="font-firma text-3xl text-purple-900 leading-none">Daniel</p><p class="text-[11px] font-bold text-purple-800 mt-1">Tu novio y futuro esposo</p></div>
+                        <div class="text-right"><p class="font-bold text-sm text-purple-900">Para Miranda</p><p class="text-[11px] font-bold text-purple-800">mi niña</p></div>
+                    </div>
+                </div>
+            </div>
+            <button type="button" onclick="nextSheet()" class="w-full py-3.5 rounded-2xl bg-gradient-to-r from-purple-500 to-fuchsia-600 text-purple-100 font-bold text-base shadow-lg border border-purple-300/40">Siguiente →</button>
+        </section>
+        <!-- HOJA 3 (Las-primeras-flores.mp3 con las 10 fotos exactas) -->
+        <section id="sheet-3" class="page-sheet space-y-4">
+            <div class="bg-gradient-to-r from-[#3b0764] to-[#6d28d9] text-purple-100 rounded-2xl p-3.5 shadow-lg border border-purple-400/60 flex items-center justify-between gap-3">
+                <button type="button" onclick="toggleSingleAudio('audio-3', this)" class="audio-btn w-11 h-11 rounded-full bg-purple-200 text-purple-950 flex items-center justify-center shadow active:scale-90 transition shrink-0" data-playing="false">
+                    <svg class="w-5 h-5 fill-current ml-0.5" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                </button>
+                <div class="flex-1 min-w-0">
+                    <p class="text-[10px] uppercase tracking-wider text-purple-300 font-bold">Canción de esta hoja</p>
+                    <p class="text-sm font-bold truncate text-purple-100">Las primeras flores - Nsqk</p>
+                </div>
+                <svg class="w-9 h-8 shrink-0"><use href="#hello-kitty-svg"/></svg>
+                <audio id="audio-3" preload="none" src="Las-primeras-flores.mp3"></audio>
+            </div>
+            <div class="text-center">
+                <h2 class="text-2xl font-bold text-purple-100">10 fotos de nosotros</h2>
+                <span class="inline-block bg-[#ddd6fe] border border-purple-400 text-purple-950 text-xs font-bold px-3.5 py-1.5 rounded-full mt-2">🔍 Toca cualquier foto para verla más de cerca</span>
+            </div>
+            <div id="photos-10-list" class="space-y-4">
+                <!-- Foto 1 -->
+                <div class="bg-[#ede9fe] rounded-3xl p-4 shadow-lg border-2 border-purple-400 space-y-2.5">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-bold text-purple-100 bg-purple-800 px-3 py-1 rounded-full">Foto #1</span>
+                        <span class="text-[11px] font-bold text-purple-800">Toca para acercar 🔍</span>
+                    </div>
+                    <div onclick="openZoomModal('Para que sepas que siempre te miraré con ojos de amor', 'Foto1.jpg')" class="cursor-pointer rounded-2xl overflow-hidden border-2 border-purple-300 bg-purple-200 aspect-[4/3]">
+                        <img src="Foto1.jpg" alt="Foto 1" class="w-full h-full object-cover">
+                    </div>
+                    <p class="text-center text-sm pt-1"><span class="marcatextos">Para que sepas que siempre te miraré con ojos de amor</span></p>
+                </div>
+
+                <!-- Foto 2 -->
+                <div class="bg-[#ede9fe] rounded-3xl p-4 shadow-lg border-2 border-purple-400 space-y-2.5">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-bold text-purple-100 bg-purple-800 px-3 py-1 rounded-full">Foto #2</span>
+                        <span class="text-[11px] font-bold text-purple-800">Toca para acercar 🔍</span>
+                    </div>
+                    <div onclick="openZoomModal('Una de mis fotos favoritas, pues ese mismo día nos dimos el primer beso', 'Foto2.jpg')" class="cursor-pointer rounded-2xl overflow-hidden border-2 border-purple-300 bg-purple-200 aspect-[4/3]">
+                        <img src="Foto2.jpg" alt="Foto 2" class="w-full h-full object-cover">
+                    </div>
+                    <p class="text-center text-sm pt-1"><span class="marcatextos">Una de mis fotos favoritas, pues ese mismo día nos dimos el primer beso</span></p>
+                </div>
+
+                <!-- Foto 3 -->
+                <div class="bg-[#ede9fe] rounded-3xl p-4 shadow-lg border-2 border-purple-400 space-y-2.5">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-bold text-purple-100 bg-purple-800 px-3 py-1 rounded-full">Foto #3</span>
+                        <span class="text-[11px] font-bold text-purple-800">Toca para acercar 🔍</span>
+                    </div>
+                    <div onclick="openZoomModal('Esta me encanta, pues te ves preciosa y más con tus flores', 'Foto3.jpg')" class="cursor-pointer rounded-2xl overflow-hidden border-2 border-purple-300 bg-purple-200 aspect-[4/3]">
+                        <img src="Foto3.jpg" alt="Foto 3" class="w-full h-full object-cover">
+                    </div>
+                    <p class="text-center text-sm pt-1"><span class="marcatextos">Esta me encanta, pues te ves preciosa y más con tus flores</span></p>
+                </div>
+
+                <!-- Foto 4 -->
+                <div class="bg-[#ede9fe] rounded-3xl p-4 shadow-lg border-2 border-purple-400 space-y-2.5">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-bold text-purple-100 bg-purple-800 px-3 py-1 rounded-full">Foto #4</span>
+                        <span class="text-[11px] font-bold text-purple-800">Toca para acercar 🔍</span>
+                    </div>
+                    <div onclick="openZoomModal('Esta me gusta, pues es de las que nos tomamos a diario abrazado a ti', 'Foto4.jpg')" class="cursor-pointer rounded-2xl overflow-hidden border-2 border-purple-300 bg-purple-200 aspect-[4/3]">
+                        <img src="Foto4.jpg" alt="Foto 4" class="w-full h-full object-cover">
+                    </div>
+                    <p class="text-center text-sm pt-1"><span class="marcatextos">Esta me gusta, pues es de las que nos tomamos a diario abrazado a ti</span></p>
+                </div>
+
+                <!-- Foto 5 -->
+                <div class="bg-[#ede9fe] rounded-3xl p-4 shadow-lg border-2 border-purple-400 space-y-2.5">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-bold text-purple-100 bg-purple-800 px-3 py-1 rounded-full">Foto #5</span>
+                        <span class="text-[11px] font-bold text-purple-800">Toca para acercar 🔍</span>
+                    </div>
+                    <div onclick="openZoomModal('Esta con el peluche que te regalé y de la vez que salimos', 'Foto5.jpg')" class="cursor-pointer rounded-2xl overflow-hidden border-2 border-purple-300 bg-purple-200 aspect-[4/3]">
+                        <img src="Foto5.jpg" alt="Foto 5" class="w-full h-full object-cover">
+                    </div>
+                    <p class="text-center text-sm pt-1"><span class="marcatextos">Esta con el peluche que te regalé y de la vez que salimos</span></p>
+                </div>
+
+                <!-- Foto 6 -->
+                <div class="bg-[#ede9fe] rounded-3xl p-4 shadow-lg border-2 border-purple-400 space-y-2.5">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-bold text-purple-100 bg-purple-800 px-3 py-1 rounded-full">Foto #6</span>
+                        <span class="text-[11px] font-bold text-purple-800">Toca para acercar 🔍</span>
+                    </div>
+                    <div onclick="openZoomModal('Esta también es de mis favoritas, de cuando nos daba pena solo darnos un simple abrazo', 'Foto6.jpg')" class="cursor-pointer rounded-2xl overflow-hidden border-2 border-purple-300 bg-purple-200 aspect-[4/3]">
+                        <img src="Foto6.jpg" alt="Foto 6" class="w-full h-full object-cover">
+                    </div>
+                    <p class="text-center text-sm pt-1"><span class="marcatextos">Esta también es de mis favoritas, de cuando nos daba pena solo darnos un simple abrazo</span></p>
+                </div>
+
+                <!-- Foto 7 -->
+                <div class="bg-[#ede9fe] rounded-3xl p-4 shadow-lg border-2 border-purple-400 space-y-2.5">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-bold text-purple-100 bg-purple-800 px-3 py-1 rounded-full">Foto #7</span>
+                        <span class="text-[11px] font-bold text-purple-800">Toca para acercar 🔍</span>
+                    </div>
+                    <div onclick="openZoomModal('Esta con tus primeras flores y cómo sonríes de fondo', 'Foto7.jpg')" class="cursor-pointer rounded-2xl overflow-hidden border-2 border-purple-300 bg-purple-200 aspect-[4/3]">
+                        <img src="Foto7.jpg" alt="Foto 7" class="w-full h-full object-cover">
+                    </div>
+                    <p class="text-center text-sm pt-1"><span class="marcatextos">Esta con tus primeras flores y cómo sonríes de fondo</span></p>
+                </div>
+
+                <!-- Foto 8 -->
+                <div class="bg-[#ede9fe] rounded-3xl p-4 shadow-lg border-2 border-purple-400 space-y-2.5">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-bold text-purple-100 bg-purple-800 px-3 py-1 rounded-full">Foto #8</span>
+                        <span class="text-[11px] font-bold text-purple-800">Toca para acercar 🔍</span>
+                    </div>
+                    <div onclick="openZoomModal('De las primeras fotos que tomaste cuando nos probamos filtros', 'Foto8.jpg')" class="cursor-pointer rounded-2xl overflow-hidden border-2 border-purple-300 bg-purple-200 aspect-[4/3]">
+                        <img src="Foto8.jpg" alt="Foto 8" class="w-full h-full object-cover">
+                    </div>
+                    <p class="text-center text-sm pt-1"><span class="marcatextos">De las primeras fotos que tomaste cuando nos probamos filtros</span></p>
+                </div>
+
+                <!-- Foto 9 -->
+                <div class="bg-[#ede9fe] rounded-3xl p-4 shadow-lg border-2 border-purple-400 space-y-2.5">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-bold text-purple-100 bg-purple-800 px-3 py-1 rounded-full">Foto #9</span>
+                        <span class="text-[11px] font-bold text-purple-800">Toca para acercar 🔍</span>
+                    </div>
+                    <div onclick="openZoomModal('Los besos que siempre me mandas antes de dormir me encantan', 'Foto9.jpg')" class="cursor-pointer rounded-2xl overflow-hidden border-2 border-purple-300 bg-purple-200 aspect-[4/3]">
+                        <img src="Foto9.jpg" alt="Foto 9" class="w-full h-full object-cover">
+                    </div>
+                    <p class="text-center text-sm pt-1"><span class="marcatextos">Los besos que siempre me mandas antes de dormir me encantan</span></p>
+                </div>
+
+                <!-- Foto 10 -->
+                <div class="bg-[#ede9fe] rounded-3xl p-4 shadow-lg border-2 border-purple-400 space-y-2.5">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-bold text-purple-100 bg-purple-800 px-3 py-1 rounded-full">Foto #10</span>
+                        <span class="text-[11px] font-bold text-purple-800">Toca para acercar 🔍</span>
+                    </div>
+                    <div onclick="openZoomModal('Y tú, mi niña preciosa, te amo', 'Foto10.jpg')" class="cursor-pointer rounded-2xl overflow-hidden border-2 border-purple-300 bg-purple-200 aspect-[4/3]">
+                        <img src="Foto10.jpg" alt="Foto 10" class="w-full h-full object-cover">
+                    </div>
+                    <p class="text-center text-sm pt-1"><span class="marcatextos">Y tú, mi niña preciosa, te amo</span></p>
+                </div>
+            </div>
+            <div class="bg-[#ede9fe] rounded-2xl p-4 border-2 border-purple-400 grid grid-cols-2 gap-2 items-end">
+                <div class="text-left"><p class="font-firma text-3xl text-purple-900 leading-none">Daniel</p><p class="text-[11px] font-bold text-purple-800 mt-1">Tu novio y futuro esposo</p></div>
+                <div class="text-right"><p class="font-bold text-sm text-purple-900">Para Miranda</p><p class="text-[11px] font-bold text-purple-800">mi niña</p></div>
+            </div>
+            <button type="button" onclick="nextSheet()" class="w-full py-3.5 rounded-2xl bg-gradient-to-r from-purple-500 to-fuchsia-600 text-purple-100 font-bold text-base shadow-lg border border-purple-300/40">Siguiente →</button>
+        </section>
+        <!-- HOJA 4 (Solo-Seme-ocurre-amarte.mp3) -->
+        <section id="sheet-4" class="page-sheet space-y-4">
+            <div class="bg-gradient-to-r from-[#3b0764] to-[#6d28d9] text-purple-100 rounded-2xl p-3.5 shadow-lg border border-purple-400/60 flex items-center justify-between gap-3">
+                <button type="button" onclick="toggleSingleAudio('audio-4', this)" class="audio-btn w-11 h-11 rounded-full bg-purple-200 text-purple-950 flex items-center justify-center shadow active:scale-90 transition shrink-0" data-playing="false">
+                    <svg class="w-5 h-5 fill-current ml-0.5" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                </button>
+                <div class="flex-1 min-w-0">
+                    <p class="text-[10px] uppercase tracking-wider text-purple-300 font-bold">Canción de esta hoja</p>
+                    <p class="text-sm font-bold truncate text-purple-100">Solo se me ocurre amarte - Alejandro Sanz</p>
+                </div>
+                <svg class="w-9 h-8 shrink-0"><use href="#hello-kitty-svg"/></svg>
+                <audio id="audio-4" preload="none" src="Solo-Seme-ocurre-amarte.mp3"></audio>
+            </div>
+            <div class="bg-[#ede9fe] rounded-3xl p-6 shadow-xl border-2 border-purple-400 text-center space-y-4">
+                <div class="flex justify-center"><svg class="w-16 h-14 kitty-float"><use href="#hello-kitty-svg"/></svg></div>
+                <h2 class="text-2xl font-bold text-purple-950">Cada día a tu lado es único</h2>
+                <div class="lined-paper mt-3 border-2 border-purple-400 rounded-2xl p-5 text-left">
+                    <p class="font-carta text-[23px] leading-[31px] text-purple-950">
+                        Mi niña hermosa, no importa el día ni el momento, siempre estás en mi mente. Me encanta platicar contigo, verte sonreír y saber que tengo a la mejor novia del mundo. Gracias por cada detalle y por todo tu cariño.
+                    </p>
+                </div>
+            </div>
+            <button type="button" onclick="nextSheet()" class="w-full py-3.5 rounded-2xl bg-gradient-to-r from-purple-500 to-fuchsia-600 text-purple-100 font-bold text-base shadow-lg border border-purple-300/40">Siguiente →</button>
+        </section>
+        <!-- HOJA 5 (Amor-mío.mp3 y los 4 recuerdos especiales) -->
+        <section id="sheet-5" class="page-sheet space-y-4">
+            <div class="bg-gradient-to-r from-[#3b0764] to-[#6d28d9] text-purple-100 rounded-2xl p-3.5 shadow-lg border border-purple-400/60 flex items-center justify-between gap-3">
+                <button type="button" onclick="toggleSingleAudio('audio-5', this)" class="audio-btn w-11 h-11 rounded-full bg-purple-200 text-purple-950 flex items-center justify-center shadow active:scale-90 transition shrink-0" data-playing="false">
+                    <svg class="w-5 h-5 fill-current ml-0.5" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                </button>
+                <div class="flex-1 min-w-0">
+                    <p class="text-[10px] uppercase tracking-wider text-purple-300 font-bold">Canción de esta hoja</p>
+                    <p class="text-sm font-bold truncate text-purple-100">Amor mío - Los Miranda</p>
+                </div>
+                <svg class="w-9 h-8 shrink-0"><use href="#hello-kitty-svg"/></svg>
+                <audio id="audio-5" preload="none" src="Amor-mío.mp3"></audio>
+            </div>
+            <div class="text-center"><h2 class="text-2xl font-bold text-purple-100">Nuestros 4 recuerdos</h2></div>
+            <div class="space-y-4">
+                <!-- Recuerdo 1 -->
+                <div class="bg-[#ede9fe] rounded-3xl p-4 shadow-lg border-2 border-purple-400 space-y-2.5">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-bold text-purple-100 bg-purple-800 px-3 py-1 rounded-full">24 de Julio</span>
+                        <svg class="w-6 h-5"><use href="#kitty-bow-svg"/></svg>
+                    </div>
+                    <div onclick="openZoomModal('24 de Julio • El inicio de todo', 'Recuerdo1.jpg')" class="cursor-pointer rounded-2xl overflow-hidden border-2 border-purple-300 bg-purple-200 aspect-[4/3]">
+                        <img src="Recuerdo1.jpg" alt="Recuerdo 1" class="w-full h-full object-cover">
+                    </div>
+                    <p class="text-center text-sm pt-1"><span class="marcatextos">24 de Julio • Una fecha que marcó nuestras vidas para siempre</span></p>
+                </div>
+
+                <!-- Recuerdo 2 -->
+                <div class="bg-[#ede9fe] rounded-3xl p-4 shadow-lg border-2 border-purple-400 space-y-2.5">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-bold text-purple-100 bg-purple-800 px-3 py-1 rounded-full">7 de Agosto</span>
+                        <svg class="w-6 h-5"><use href="#kitty-bow-svg"/></svg>
+                    </div>
+                    <div onclick="openZoomModal('7 de Agosto • Momentos inolvidables', 'Recuerdo2.jpg')" class="cursor-pointer rounded-2xl overflow-hidden border-2 border-purple-300 bg-purple-200 aspect-[4/3]">
+                        <img src="Recuerdo2.jpg" alt="Recuerdo 2" class="w-full h-full object-cover">
+                    </div>
+                    <p class="text-center text-sm pt-1"><span class="marcatextos">7 de Agosto • Cada instante a tu lado se vuelve mi favorito</span></p>
+                </div>
+
+                <!-- Recuerdo 3 -->
+                <div class="bg-[#ede9fe] rounded-3xl p-4 shadow-lg border-2 border-purple-400 space-y-2.5">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-bold text-purple-100 bg-purple-800 px-3 py-1 rounded-full">20 de Septiembre</span>
+                        <svg class="w-6 h-5"><use href="#kitty-bow-svg"/></svg>
+                    </div>
+                    <div onclick="openZoomModal('20 de Septiembre • Risas y complicidad', 'Recuerdo3.jpg')" class="cursor-pointer rounded-2xl overflow-hidden border-2 border-purple-300 bg-purple-200 aspect-[4/3]">
+                        <img src="Recuerdo3.jpg" alt="Recuerdo 3" class="w-full h-full object-cover">
+                    </div>
+                    <p class="text-center text-sm pt-1"><span class="marcatextos">20 de Septiembre • Risas, abrazos y recuerdos que guardo en el corazón</span></p>
+                </div>
+
+                <!-- Recuerdo 4 -->
+                <div class="bg-[#ede9fe] rounded-3xl p-4 shadow-lg border-2 border-purple-400 space-y-2.5">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-bold text-purple-100 bg-purple-800 px-3 py-1 rounded-full">16 de Septiembre</span>
+                        <svg class="w-6 h-5"><use href="#kitty-bow-svg"/></svg>
+                    </div>
+                    <div onclick="openZoomModal('16 de Septiembre • Fechas especiales juntos', 'Recuerdo4.jpg')" class="cursor-pointer rounded-2xl overflow-hidden border-2 border-purple-300 bg-purple-200 aspect-[4/3]">
+                        <img src="Recuerdo4.jpg" alt="Recuerdo 4" class="w-full h-full object-cover">
+                    </div>
+                    <p class="text-center text-sm pt-1"><span class="marcatextos">16 de Septiembre • Celebrando nuestro amor en cada paso</span></p>
+                </div>
+            </div>
+            <button type="button" onclick="nextSheet()" class="w-full py-3.5 rounded-2xl bg-gradient-to-r from-purple-500 to-fuchsia-600 text-purple-100 font-bold text-base shadow-lg border border-purple-300/40">Siguiente →</button>
+        </section>
+        <!-- HOJA 6 (Barco.mp3 y reproductor Spotify) -->
+        <section id="sheet-6" class="page-sheet space-y-4">
+            <div class="bg-gradient-to-r from-[#3b0764] to-[#6d28d9] text-purple-100 rounded-2xl p-3.5 shadow-lg border border-purple-400/60 flex items-center justify-between gap-3">
+                <button type="button" onclick="toggleSingleAudio('audio-6', this)" class="audio-btn w-11 h-11 rounded-full bg-purple-200 text-purple-950 flex items-center justify-center shadow active:scale-90 transition shrink-0" data-playing="false">
+                    <svg class="w-5 h-5 fill-current ml-0.5" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                </button>
+                <div class="flex-1 min-w-0">
+                    <p class="text-[10px] uppercase tracking-wider text-purple-300 font-bold">Canción de esta hoja</p>
+                    <p class="text-sm font-bold truncate text-purple-100">Barco - Nsqk</p>
+                </div>
+                <svg class="w-9 h-8 shrink-0"><use href="#hello-kitty-svg"/></svg>
+                <audio id="audio-6" preload="none" src="Barco.mp3"></audio>
+            </div>
+            <div class="text-center"><h2 class="text-2xl font-bold text-purple-100">Nuestra Playlist Especial</h2></div>
+            <div class="bg-gradient-to-br from-[#3b0764] via-purple-900 to-[#1e0a3c] rounded-3xl p-5 shadow-2xl border-2 border-purple-400/60 text-purple-100 space-y-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-14 h-14 rounded-2xl bg-purple-800 border border-purple-400 flex items-center justify-center text-2xl shadow-inner shrink-0">🎵</div>
+                    <div class="min-w-0 flex-1">
+                        <p id="sp-active-title" class="font-bold text-base truncate text-fuchsia-200">Hasta donde te quiero</p>
+                        <p class="text-xs text-purple-300 truncate">Nuestra playlist de amor</p>
+                    </div>
+                </div>
+                <div class="space-y-1.5">
+                    <input id="sp-progress-bar" type="range" min="0" max="100" value="0" oninput="seekSpotifyTrack(this.value)" class="spotify-slider">
+                    <div class="flex justify-between text-[11px] text-purple-300 font-bold">
+                        <span id="sp-time-now">0:00</span>
+                        <span id="sp-time-end">3:24</span>
+                    </div>
+                </div>
+                <div class="flex items-center justify-center gap-5 pt-1">
+                    <button type="button" onclick="prevSpotifyTrack()" class="w-10 h-10 rounded-full bg-purple-800/80 border border-purple-400/50 flex items-center justify-center text-purple-200 active:scale-90 transition">⏮</button>
+                    <button id="sp-main-btn" type="button" onclick="toggleSpotifyPlay()" class="w-14 h-14 rounded-full bg-gradient-to-r from-fuchsia-600 to-purple-600 text-purple-100 border-2 border-purple-200 shadow-lg flex items-center justify-center active:scale-95 transition">
+                        <svg class="w-7 h-7 fill-current ml-0.5" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    </button>
+                    <button type="button" onclick="nextSpotifyTrack()" class="w-10 h-10 rounded-full bg-purple-800/80 border border-purple-400/50 flex items-center justify-center text-purple-200 active:scale-90 transition">⏭</button>
+                </div>
+                <div id="sp-tracks-container" class="space-y-1.5 pt-2 border-t border-purple-500/30"></div>
+                <audio id="sp-audio-element" preload="none"></audio>
+            </div>
+            <button type="button" onclick="nextSheet()" class="w-full py-3.5 rounded-2xl bg-gradient-to-r from-purple-500 to-fuchsia-600 text-purple-100 font-bold text-base shadow-lg border border-purple-300/40">Siguiente →</button>
+        </section>
+        <!-- HOJA 6 (Barco.mp3 y reproductor Spotify) -->
+        <section id="sheet-6" class="page-sheet space-y-4">
+            <div class="bg-gradient-to-r from-[#3b0764] to-[#6d28d9] text-purple-100 rounded-2xl p-3.5 shadow-lg border border-purple-400/60 flex items-center justify-between gap-3">
+                <button type="button" onclick="toggleSingleAudio('audio-6', this)" class="audio-btn w-11 h-11 rounded-full bg-purple-200 text-purple-950 flex items-center justify-center shadow active:scale-90 transition shrink-0" data-playing="false">
+                    <svg class="w-5 h-5 fill-current ml-0.5" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                </button>
+                <div class="flex-1 min-w-0">
+                    <p class="text-[10px] uppercase tracking-wider text-purple-300 font-bold">Canción de esta hoja</p>
+                    <p class="text-sm font-bold truncate text-purple-100">Barco - Nsqk</p>
+                </div>
+                <svg class="w-9 h-8 shrink-0"><use href="#hello-kitty-svg"/></svg>
+                <audio id="audio-6" preload="none" src="Barco.mp3"></audio>
+            </div>
+            <div class="text-center"><h2 class="text-2xl font-bold text-purple-100">Nuestra Playlist Especial</h2></div>
+            <div class="bg-gradient-to-br from-[#3b0764] via-purple-900 to-[#1e0a3c] rounded-3xl p-5 shadow-2xl border-2 border-purple-400/60 text-purple-100 space-y-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-14 h-14 rounded-2xl bg-purple-800 border border-purple-400 flex items-center justify-center text-2xl shadow-inner shrink-0">🎵</div>
+                    <div class="min-w-0 flex-1">
+                        <p id="sp-active-title" class="font-bold text-base truncate text-fuchsia-200">Hasta donde te quiero</p>
+                        <p class="text-xs text-purple-300 truncate">Nuestra playlist de amor</p>
+                    </div>
+                </div>
+                <div class="space-y-1.5">
+                    <input id="sp-progress-bar" type="range" min="0" max="100" value="0" oninput="seekSpotifyTrack(this.value)" class="spotify-slider">
+                    <div class="flex justify-between text-[11px] text-purple-300 font-bold">
+                        <span id="sp-time-now">0:00</span>
+                        <span id="sp-time-end">3:24</span>
+                    </div>
+                </div>
+                <div class="flex items-center justify-center gap-5 pt-1">
+                    <button type="button" onclick="prevSpotifyTrack()" class="w-10 h-10 rounded-full bg-purple-800/80 border border-purple-400/50 flex items-center justify-center text-purple-200 active:scale-90 transition">⏮</button>
+                    <button id="sp-main-btn" type="button" onclick="toggleSpotifyPlay()" class="w-14 h-14 rounded-full bg-gradient-to-r from-fuchsia-600 to-purple-600 text-purple-100 border-2 border-purple-200 shadow-lg flex items-center justify-center active:scale-95 transition">
+                        <svg class="w-7 h-7 fill-current ml-0.5" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    </button>
+                    <button type="button" onclick="nextSpotifyTrack()" class="w-10 h-10 rounded-full bg-purple-800/80 border border-purple-400/50 flex items-center justify-center text-purple-200 active:scale-90 transition">⏭</button>
+                </div>
+                <div id="sp-tracks-container" class="space-y-1.5 pt-2 border-t border-purple-500/30"></div>
+                <audio id="sp-audio-element" preload="none"></audio>
+            </div>
+            <button type="button" onclick="nextSheet()" class="w-full py-3.5 rounded-2xl bg-gradient-to-r from-purple-500 to-fuchsia-600 text-purple-100 font-bold text-base shadow-lg border border-purple-300/40">Siguiente →</button>
+        </section>
+        <!-- HOJA 7 (Tu-vida-y-mi vida.mp3 y rasca y gana con Foto11.jpg) -->
+        <section id="sheet-7" class="page-sheet space-y-4">
+            <div class="bg-gradient-to-r from-[#3b0764] to-[#6d28d9] text-purple-100 rounded-2xl p-3.5 shadow-lg border border-purple-400/60 flex items-center justify-between gap-3">
+                <button type="button" onclick="toggleSingleAudio('audio-7', this)" class="audio-btn w-11 h-11 rounded-full bg-purple-200 text-purple-950 flex items-center justify-center shadow active:scale-90 transition shrink-0" data-playing="false">
+                    <svg class="w-5 h-5 fill-current ml-0.5" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                </button>
+                <div class="flex-1 min-w-0">
+                    <p class="text-[10px] uppercase tracking-wider text-purple-300 font-bold">Canción de esta hoja</p>
+                    <p class="text-sm font-bold truncate text-purple-100">Tu vida y mi vida - Pedro Infante</p>
+                </div>
+                <svg class="w-9 h-8 shrink-0"><use href="#hello-kitty-svg"/></svg>
+                <audio id="audio-7" preload="none" src="Tu-vida-y-mi vida.mp3"></audio>
+            </div>
+            <div class="text-center"><h2 class="text-2xl font-bold text-purple-100">Espero que disfrutes tu día mi niña</h2></div>
+            <div id="env-box-2">
+                <div onclick="toggleEnvelope('env-box-2')" class="physical-envelope cursor-pointer rounded-3xl p-7 shadow-xl text-center active:scale-98 transition">
+                    <div class="flex flex-col items-center justify-center pt-4">
+                        <div class="heart-seal mb-2.5"><span class="text-2xl">💜</span></div>
+                        <p class="font-bold text-purple-950 text-base relative z-10">Toca el sello para abrir tu carta final</p>
+                        <p class="text-xs font-semibold text-purple-900 mt-0.5 relative z-10">(Presiona el sobre)</p>
+                    </div>
+                </div>
+                <div class="lined-paper mt-3 border-2 border-purple-400 rounded-2xl p-5">
+                    <div class="flex justify-between items-center border-b-2 border-purple-300 pb-2 mb-3">
+                        <span class="text-xs font-bold text-purple-900 uppercase">Con todo mi amor</span>
+                        <svg class="w-7 h-5"><use href="#kitty-bow-svg"/></svg>
+                    </div>
+                    <p class="font-carta text-[24px] leading-[32px] text-purple-950">
+                        Bueno, mi niña, aquí acaba esta página web. Espero que disfrutes este día como nunca, que estés alegre, tranquila y sea un día sin problemas, con recuerdos bonitos, y si podemos pasarla bien juntos, pues es tu primer cumpleaños juntos, mi vida. Solo te deseo lo mejor, ¡te amo!
+                    </p>
+                    <div class="mt-4 pt-3 border-t border-purple-300 text-left">
+                        <p class="font-firma text-3xl text-purple-900 leading-none">Daniel</p>
+                        <p class="text-[11px] font-bold text-purple-800 mt-1">Tu novio y futuro esposo</p>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-[#ede9fe] rounded-3xl p-4 shadow-lg border-2 border-purple-400 text-center space-y-2.5">
+                <h3 class="text-xl font-bold text-purple-950">Mi foto favorita</h3>
+                <p class="text-xs font-bold text-purple-800">✨ Raspa el cuadro morado con tu dedo ✨</p>
+                <div id="scratch-box" class="relative w-full aspect-[4/3] rounded-2xl overflow-hidden border-2 border-purple-500 shadow-inner mx-auto select-none">
+                    <img src="Foto11.jpg" alt="Mi foto favorita" class="w-full h-full object-cover">
+                    <canvas id="scratch-canvas" class="absolute inset-0 w-full h-full"></canvas>
+                </div>
+                <p class="text-sm pt-1"><span class="marcatextos">Cada momento contigo es inigualable, te amo</span></p>
+            </div>
+            <div class="bg-gradient-to-br from-[#3b0764] via-purple-900 to-fuchsia-900 text-purple-100 rounded-3xl p-5 shadow-2xl border-2 border-purple-400/60 text-center space-y-3">
+                <div class="flex justify-center"><svg class="w-16 h-13 kitty-float"><use href="#hello-kitty-svg"/></svg></div>
+                <h2 class="font-carta text-4xl font-bold text-purple-200">¡Feliz día, mi princesa!</h2>
+                <div class="pt-3 border-t border-purple-400/30 grid grid-cols-2 gap-2 items-end text-purple-100">
+                    <div class="text-left"><p class="font-firma text-3xl text-purple-200 leading-none">Daniel</p><p class="text-[11px] text-purple-300 mt-1">Tu novio y futuro esposo</p></div>
+                    <div class="text-right"><p class="font-bold text-sm text-purple-200">Para Miranda</p><p class="text-[11px] text-purple-300">mi niña</p></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="zoom-modal" onclick="closeZoomModal()" class="fixed inset-0 bg-[#1e0a3c]/90 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
+        <div onclick="event.stopPropagation()" class="bg-[#ede9fe] rounded-3xl max-w-[390px] w-full overflow-hidden shadow-2xl border-2 border-purple-400">
+            <div class="relative bg-[#2e1065]">
+                <img id="zoom-modal-img" src="" alt="Foto ampliada" class="w-full max-h-[62vh] object-contain mx-auto">
+                <button type="button" onclick="closeZoomModal()" class="absolute top-3 right-3 w-9 h-9 rounded-full bg-purple-200 text-purple-950 font-bold shadow flex items-center justify-center">✕</button>
+            </div>
+            <div class="p-4 text-center bg-[#ede9fe]"><p id="zoom-modal-text" class="text-sm font-bold text-purple-950"></p></div>
+        </div>
+    </div>
+    <script>
+        let activeSheet = 1;
+        const totalSheets = 7;
+        let unlocked = false;
+
+        const ICON_PLAY = '<svg class="w-5 h-5 fill-current ml-0.5" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>';
+        const ICON_PAUSE = '<svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M6 5h4v14H6zm8 0h4v14h-4z"/></svg>';
+        const ICON_PLAY_LG = '<svg class="w-7 h-7 fill-current ml-0.5" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>';
+        const ICON_PAUSE_LG = '<svg class="w-7 h-7 fill-current" viewBox="0 0 24 24"><path d="M6 5h4v14H6zm8 0h4v14h-4z"/></svg>';
+
+        const playlistSongs = [
+            { title: "Hasta donde te quiero", artist: "Nuestra canción especial", duration: "3:24", file: "Asta-donde-te-quiero.mp3" },
+            { title: "Neo roneo", artist: "Rusowsky", duration: "2:58", file: "Neo-roneo.mp3" },
+            { title: "Solo se me ocurre amarte", artist: "Alejandro Sanz", duration: "4:12", file: "Solo-Seme-ocurre-amarte.mp3" },
+            { title: "Amor mío", artist: "Los Miranda", duration: "3:41", file: "Amor-mío.mp3" },
+            { title: "Barco", artist: "Nsqk", duration: "3:15", file: "Barco.mp3" }
+        ];
+
+        let pinBuffer = "";
+        const SECRET_PIN = "0708";
+
+        function addPinDigit(num) {
+            if (pinBuffer.length >= 4) return;
+            pinBuffer += num;
+            document.getElementById('pin-error-msg').classList.add('hidden');
+            refreshPinBoxes();
+        }
+
+        function removePinDigit() {
+            pinBuffer = pinBuffer.slice(0, -1);
+            document.getElementById('pin-error-msg').classList.add('hidden');
+            refreshPinBoxes();
+        }
+
+        function refreshPinBoxes() {
+            const digits = document.querySelectorAll('.pin-digit');
+            digits.forEach((box, idx) => {
+                if (idx < pinBuffer.length) {
+                    box.textContent = pinBuffer[idx];
+                    box.classList.add('bg-purple-300', 'border-purple-700');
+                } else {
+                    box.textContent = "";
+                    box.classList.remove('bg-purple-300', 'border-purple-700');
+                }
+            });
+        }
+
+        function checkPin() {
+            const container = document.getElementById('pin-container');
+            const err = document.getElementById('pin-error-msg');
+            if (pinBuffer === SECRET_PIN) {
+                unlocked = true;
+                err.classList.add('hidden');
+                switchSheet(2);
+            } else {
+                err.classList.remove('hidden');
+                container.classList.add('shake-error');
+                setTimeout(() => { container.classList.remove('shake-error'); pinBuffer = ""; refreshPinBoxes(); }, 400);
+            }
+        }
+
+        function switchSheet(target) {
+            if (target < 1 || target > totalSheets) return;
+            if (target > 1 && !unlocked) return;
+            stopAllSounds();
+            document.querySelectorAll('.page-sheet').forEach(el => el.classList.remove('active'));
+            const nextEl = document.getElementById(`sheet-${target}`);
+            if (nextEl) { nextEl.classList.add('active'); activeSheet = target; }
+            window.scrollTo(0, 0);
+            document.documentElement.scrollTop = 0;
+            document.body.scrollTop = 0;
+            const topBar = document.getElementById('top-bar');
+            if (activeSheet === 1) {
+                topBar.classList.add('hidden');
+            } else {
+                topBar.classList.remove('hidden');
+                document.getElementById('sheet-indicator').textContent = `${activeSheet}/${totalSheets}`;
+                updateProgressDots();
+            }
+            if (activeSheet === 7) { setTimeout(setupScratchCanvas, 100); }
+        }
+
+        function nextSheet() { if (activeSheet < totalSheets) switchSheet(activeSheet + 1); }
+        function prevSheet() { if (activeSheet > 1) switchSheet(activeSheet - 1); }
+
+        function updateProgressDots() {
+            const dotsWrap = document.getElementById('progress-dots');
+            dotsWrap.innerHTML = '';
+            for (let i = 2; i <= totalSheets; i++) {
+                const span = document.createElement('span');
+                span.className = i === activeSheet ? 'w-4 h-2 rounded-full bg-purple-800 transition-all' : 'w-2 h-2 rounded-full bg-purple-400 transition-all';
+                dotsWrap.appendChild(span);
+            }
+        }
+
+        function toggleEnvelope(boxId) {
+            const box = document.getElementById(boxId);
+            if (box) box.classList.toggle('envelope-opened');
+        }
+
+        function openZoomModal(caption, src) {
+            const modal = document.getElementById('zoom-modal');
+            document.getElementById('zoom-modal-img').src = src;
+            document.getElementById('zoom-modal-text').innerHTML = `<span class="marcatextos">${caption}</span>`;
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeZoomModal() {
+            const modal = document.getElementById('zoom-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        let spIndex = 0;
+        let spPlaying = false;
+        let spTimer = null;
+        let spFakeSec = 0;
+
+        function stopAllSounds() {
+            document.querySelectorAll('audio').forEach(a => a.pause());
+            document.querySelectorAll('.audio-btn').forEach(btn => {
+                btn.dataset.playing = 'false';
+                btn.innerHTML = ICON_PLAY;
+            });
+            spPlaying = false;
+            const mainBtn = document.getElementById('sp-main-btn');
+            if (mainBtn) mainBtn.innerHTML = ICON_PLAY_LG;
+            clearInterval(spTimer);
+        }
+
+        function toggleSingleAudio(audioId, btn) {
+            const audio = document.getElementById(audioId);
+            const isCurrentlyPlaying = btn.dataset.playing === 'true';
+            stopAllSounds();
+            if (!isCurrentlyPlaying) {
+                btn.dataset.playing = 'true';
+                btn.innerHTML = ICON_PAUSE;
+                if (audio) audio.play().catch(() => {});
+            }
+        }
+
+        function buildSpotifyPlaylist() {
+            const container = document.getElementById('sp-tracks-container');
+            container.innerHTML = '';
+            playlistSongs.forEach((song, idx) => {
+                const selected = idx === spIndex;
+                const row = document.createElement('button');
+                row.type = 'button';
+                row.onclick = () => selectSpotifyTrack(idx);
+                row.className = `w-full flex items-center justify-between p-2.5 rounded-xl text-left transition ${selected ? 'bg-purple-600/40 border border-purple-300/60' : 'hover:bg-purple-800/30'}`;
+                row.innerHTML = `
+                    <div class="flex items-center gap-3 min-w-0">
+                        <span class="text-xs font-bold ${selected ? 'text-fuchsia-300' : 'text-purple-400'} w-4">${idx + 1}</span>
+                        <div class="truncate">
+                            <p class="text-sm font-bold truncate ${selected ? 'text-fuchsia-200' : 'text-purple-100'}">${song.title}</p>
+                            <p class="text-[11px] text-purple-300 truncate">${song.artist}</p>
+                        </div>
+                    </div>
+                    <span class="text-xs text-purple-300 font-bold ml-2">${song.duration}</span>
+                `;
+                container.appendChild(row);
+            });
+        }
+
+        function selectSpotifyTrack(idx) {
+            spIndex = idx;
+            spFakeSec = 0;
+            const audio = document.getElementById('sp-audio-element');
+            audio.pause();
+            audio.src = playlistSongs[idx].file;
+            audio.currentTime = 0;
+            document.getElementById('sp-active-title').textContent = playlistSongs[idx].title;
+            document.getElementById('sp-time-end').textContent = playlistSongs[idx].duration;
+            document.getElementById('sp-time-now').textContent = '0:00';
+            document.getElementById('sp-progress-bar').value = 0;
+            buildSpotifyPlaylist();
+            if (spPlaying) { audio.play().catch(() => {}); } else { toggleSpotifyPlay(); }
+        }
+
+        function toggleSpotifyPlay() {
+            const btn = document.getElementById('sp-main-btn');
+            const audio = document.getElementById('sp-audio-element');
+            if (spPlaying) {
+                spPlaying = false;
+                btn.innerHTML = ICON_PLAY_LG;
+                audio.pause();
+                clearInterval(spTimer);
+            } else {
+                stopAllSounds();
+                spPlaying = true;
+                btn.innerHTML = ICON_PAUSE_LG;
+                if (!audio.getAttribute('src')) { audio.src = playlistSongs[spIndex].file; }
+                audio.play().catch(() => {});
+                spTimer = setInterval(() => {
+                    if (!audio.paused && audio.duration) {
+                        const c = Math.floor(audio.currentTime);
+                        const d = Math.floor(audio.duration);
+                        document.getElementById('sp-time-now').textContent = `${Math.floor(c / 60)}:${String(c % 60).padStart(2, '0')}`;
+                        document.getElementById('sp-time-end').textContent = `${Math.floor(d / 60)}:${String(d % 60).padStart(2, '0')}`;
+                        document.getElementById('sp-progress-bar').value = Math.min(100, Math.floor((c / d) * 100));
+                    } else {
+                        spFakeSec++;
+                        if (spFakeSec > 200) spFakeSec = 0;
+                        document.getElementById('sp-time-now').textContent = `${Math.floor(spFakeSec / 60)}:${String(spFakeSec % 60).padStart(2, '0')}`;
+                        document.getElementById('sp-progress-bar').value = Math.min(100, Math.floor((spFakeSec / 200) * 100));
+                    }
+                }, 1000);
+            }
+        }
+
+        function nextSpotifyTrack() { selectSpotifyTrack((spIndex + 1) % playlistSongs.length); }
+        function prevSpotifyTrack() { selectSpotifyTrack((spIndex - 1 + playlistSongs.length) % playlistSongs.length); }
+
+        function seekSpotifyTrack(val) {
+            const audio = document.getElementById('sp-audio-element');
+            if (audio.duration) { audio.currentTime = (val / 100) * audio.duration; }
+            spFakeSec = Math.floor((val / 100) * 200);
+            document.getElementById('sp-time-now').textContent = `${Math.floor(spFakeSec / 60)}:${String(spFakeSec % 60).padStart(2, '0')}`;
+        }
+
+        let scratchReady = false;
+        function setupScratchCanvas() {
+            const canvas = document.getElementById('scratch-canvas');
+            const box = document.getElementById('scratch-box');
+            if (!canvas || !box || scratchReady) return;
+            const rect = box.getBoundingClientRect();
+            canvas.width = rect.width || 320;
+            canvas.height = rect.height || 240;
+            const ctx = canvas.getContext('2d');
+            const grad = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+            grad.addColorStop(0, '#6d28d9'); grad.addColorStop(0.5, '#a21caf'); grad.addColorStop(1, '#4c1d95');
+            ctx.fillStyle = grad; ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = '#f3e8ff'; ctx.font = 'bold 17px Quicksand, sans-serif'; ctx.textAlign = 'center';
+            ctx.fillText('✨ Raspa aquí con tu dedo ✨', canvas.width / 2, canvas.height / 2 - 6);
+            ctx.font = '13px Quicksand, sans-serif';
+            ctx.fillText('Para descubrir nuestra foto favorita', canvas.width / 2, canvas.height / 2 + 16);
+            let scratching = false;
+            function getCoords(e) {
+                const r = canvas.getBoundingClientRect();
+                const cx = e.touches ? e.touches[0].clientX : e.clientX;
+                const cy = e.touches ? e.touches[0].clientY : e.clientY;
+                return { x: cx - r.left, y: cy - r.top };
+            }
+            function erase(e) {
+                if (!scratching) return;
+                e.preventDefault();
+                const pos = getCoords(e);
+                ctx.globalCompositeOperation = 'destination-out';
+                ctx.beginPath(); ctx.arc(pos.x, pos.y, 26, 0, Math.PI * 2); ctx.fill();
+            }
+            canvas.addEventListener('mousedown', (e) => { scratching = true; erase(e); });
+            canvas.addEventListener('mousemove', erase);
+            window.addEventListener('mouseup', () => { scratching = false; });
+            canvas.addEventListener('touchstart', (e) => { scratching = true; erase(e); }, { passive: false });
+            canvas.addEventListener('touchmove', erase, { passive: false });
+            canvas.addEventListener('touchend', () => { scratching = false; });
+            scratchReady = true;
+        }
+
+        window.onload = function() {
+            buildSpotifyPlaylist();
+        };
+    </script>
+</body>
+</html>
